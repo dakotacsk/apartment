@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#1b1613">
+  <meta name="description" content="Welcome to Dakota and Rashika's Halloween housewarming. A little spooky, a lot like home.">
+  <title>The Haunt · Dakota & Rashika</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/cormorant-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/haunted-home.png" as="image">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-mood="candlelight">
+  <div class="atmosphere" aria-hidden="true">
+    <div class="light light-one"></div><div class="light light-two"></div><div class="light light-three"></div>
+    <div class="halo"></div><div class="grain"></div><div id="fireflies"></div><div class="vignette"></div>
+  </div>
+  <div class="welcome-screen">
+    <header class="masthead">
+      <span class="house-mark" aria-hidden="true">✦</span>
+      <span class="wordmark">the haunt</span>
+      <span class="masthead-caption">DAKOTA & RASHIKA'S PLACE</span>
+    </header>
+    <main class="stage" id="welcome">
+      <div class="greeting">
+        <p class="eyebrow"><span></span>A HALLOWEEN HOUSEWARMING<span></span></p>
+        <h1>Welcome to our<br><em>haunted home.</em></h1>
+        <p class="intro">A little spooky. A lot like home.</p>
+        <p class="hosts">With love, <span>Dakota & Rashika</span></p>
+      </div>
+      <figure class="house-scene">
+        <div class="scene-glow" aria-hidden="true"></div>
+        <img src="assets/haunted-home.png" width="1402" height="1122" alt="A cozy Victorian house with glowing windows, an orange harvest moon, pumpkins, and a friendly ghost at the door." fetchpriority="high">
+      </figure>
+      <p class="welcome-note">Come for the housewarming. Stay for the spirits.</p>
+    </main>
+    <footer class="footer">
+      <div class="party-date"><span class="date-rule"></span>OCTOBER 11, 2026<span class="date-rule"></span></div>
+      <nav class="display-controls" aria-label="Display controls">
+        <button id="settings-button" class="control mood-control" aria-haspopup="dialog" aria-controls="settings-dialog"><span class="icon sliders" aria-hidden="true"></span><span id="mood-label">Candlelight</span></button>
+        <span class="control-divider" aria-hidden="true"></span>
+        <button id="motion-button" class="control icon-button" aria-label="Pause motion" aria-pressed="false" title="Pause motion"><span class="icon pause" aria-hidden="true"></span></button>
+        <button id="ambient-button" class="control" aria-pressed="false"><span class="icon moon" aria-hidden="true"></span><span id="ambient-label">Lights only</span></button>
+        <button id="fullscreen-button" class="control fullscreen-control"><span class="icon expand" aria-hidden="true"></span><span id="fullscreen-label">Full screen</span></button>
+      </nav>
+      <p class="display-hint" id="display-hint">Settle in. Make yourself at home.</p>
+    </footer>
+  </div>
+  <dialog id="settings-dialog" aria-labelledby="settings-title">
+    <div class="dialog-heading"><div><p class="dialog-eyebrow">SET THE MOOD</p><h2 id="settings-title">A softer kind of spooky.</h2></div><button id="close-settings" class="control close-button" aria-label="Close settings"><span class="icon close" aria-hidden="true"></span></button></div>
+    <fieldset class="moods"><legend>Ambient light</legend>
+      <button class="mood-choice" data-mood-choice="candlelight" aria-pressed="true"><span class="mood-swatch candlelight"></span><span>Candlelight<small>Warm & welcoming</small></span></button>
+      <button class="mood-choice" data-mood-choice="ember" aria-pressed="false"><span class="mood-swatch ember"></span><span>Ember<small>A deeper orange glow</small></span></button>
+      <button class="mood-choice" data-mood-choice="midnight" aria-pressed="false"><span class="mood-swatch midnight"></span><span>Midnight<small>Quiet & low-lit</small></span></button>
+    </fieldset>
+    <div class="brightness-heading"><label for="brightness">Glow brightness</label><output for="brightness" id="brightness-value">75%</output></div>
+    <input type="range" id="brightness" min="20" max="100" value="75">
+    <label class="awake-setting"><input id="keep-awake" type="checkbox" checked><span>Keep the display awake<small id="awake-status">Active when supported in full screen.</small></span></label>
+    <p class="settings-tip">Full screen hides the controls after a few seconds. Move your mouse, tap, or press a key to bring them back.</p>
+    <p class="keyboard-hint"><kbd>F</kbd> Full screen <kbd>L</kbd> Lights only <kbd>Space</kbd> Pause motion</p>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

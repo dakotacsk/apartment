@@ -1,0 +1,6 @@
+# Sites development copy and packaging outputs; GitHub Pages uses docs/.
+haunt/
+haunt-deploy.tar.gz
+haunted-house.svg
+portrait-preview.*
+.DS_Store
